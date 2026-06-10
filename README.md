@@ -35,7 +35,7 @@ Para garantir a melhor experiência e evitar que o cliente se assuste com os ale
 
 | Versão LITE (Azul) | Versão PREMIUM (Escuro/Ouro) | PREMIUM (Campos Abertos) |
 | :---: | :---: | :---: |
-| <img src="imagemlitefrontal.png" width="220" alt="Interface LITE"/> | <img src="img fontal premiu.png" width="220" alt="Interface PREMIUM"/> | <img src="premiu,com aba numeros aberto.png" width="220" alt="Abas PREMIUM Abertas"/> |
+| <img src="telfoneliteAreafrontal.png" width="220" alt="Interface LITE"/> | <img src="telfonepremiuAreafrontal.png" width="220" alt="Interface PREMIUM"/> | <img src="telfonepremiuNumroIdenticaAberto.png" width="220" alt="Abas PREMIUM Abertas"/> |
 
 ---
 
