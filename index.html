@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Minha Carteira Digital - Essemetecnocontas</title>
+    <meta name="description" content="Descarregue o aplicativo oficial Minha Carteira Digital (LITE e PREMIUM). Guarde os seus documentos como BI, Carta e Foto Passe de forma 100% offline e segura.">
+    <meta name="keywords" content="essemetecnocontas, carteira digital angola, baixar apk carteira, carteira lite, carteira premium, ativação carteira digital">
+    <meta name="author" content="Essemetecnocontas">
+
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-dark: #0369a1;
+            --premium-color: #d97706;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-muted: #64748b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
+
+        /* Navegação */
+        nav {
+            background: var(--card-bg);
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .nav-logo { font-size: 18px; font-weight: 800; color: var(--primary-dark); letter-spacing: 0.5px; }
+
+        /* Secção Principal (Hero) */
+        .hero {
+            padding: 60px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+        }
+        .hero h1 { font-size: 32px; font-weight: 800; color: var(--dark); margin-bottom: 15px; line-height: 1.2; }
+        .hero p { font-size: 16px; color: #334155; max-width: 600px; margin: 0 auto 30px auto; }
+
+        /* Grelha de Produtos (LITE vs PREMIUM) */
+        .products-container {
+            max-width: 1100px;
+            margin: -40px auto 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+        .card.premium-card { border-top: 6px solid var(--premium-color); }
+        .card.lite-card { border-top: 6px solid var(--primary); }
+
+        .badge {
+            position: absolute; top: 15px; right: 15px;
+            font-size: 11px; font-weight: bold; padding: 4px 10px; border-radius: 20px;
+        }
+        .lite-badge { background: #e0f2fe; color: var(--primary-dark); }
+        .premium-badge { background: #fef3c7; color: var(--premium-color); }
+
+        /* Títulos e Ícones */
+        .card-header-block { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; margin-top: 10px; }
+        .app-icon { width: 45px; height: 45px; border-radius: 10px; object-fit: cover; }
+        .card h2 { font-size: 22px; }
+        
+        .price { font-size: 26px; font-weight: 800; margin-bottom: 5px; color: var(--dark); }
+        .price span { font-size: 14px; font-weight: normal; color: var(--text-muted); }
+        .renewal-price { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; font-style: italic; }
+
+        .features-list { list-style: none; margin-bottom: 25px; }
+        .features-list li { font-size: 14px; color: #475569; margin-bottom: 10px; display: flex; align-items: center; }
+        .features-list li::before { content: "✓"; color: #10b981; font-weight: bold; margin-right: 10px; font-size: 16px; }
+
+        /* Área de Visualização das Interfaces (Mockups) */
+        .preview-gallery {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 25px;
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px dashed #cbd5e1;
+        }
+        .preview-img {
+            max-width: 100%;
+            height: auto;
+            max-height: 280px;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            object-fit: contain;
+        }
+        .premium-gallery .preview-img { max-height: 220px; }
+
+        /* Botões de Download */
+        .btn-download {
+            display: block; text-align: center; width: 100%;
+            padding: 14px; border-radius: 10px; font-weight: bold;
+            text-decoration: none; font-size: 15px; transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .btn-lite { background-color: var(--primary); color: white; }
+        .btn-lite:hover { background-color: var(--primary-dark); }
+        .btn-premium { background-color: #1e293b; color: white; }
+        .btn-premium:hover { background-color: var(--dark); }
+
+        /* Secção de Instruções Reorganizada */
+        .instructions { max-width: 950px; margin: 60px auto; padding: 0 20px; }
+        .instructions h3 { text-align: center; margin-bottom: 30px; font-size: 24px; }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .step-item { background: var(--card-bg); padding: 25px; border-radius: 14px; border: 1px solid #e2e8f0; position: relative; }
+        .step-number { width: 32px; height: 32px; background: var(--primary-dark); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-bottom: 12px; font-size: 14px; }
+        .step-item h4 { font-size: 16px; margin-bottom: 8px; color: var(--dark); }
+        .step-item p { font-size: 13.5px; color: #475569; line-height: 1.5; }
+        
+        /* Destaque Estratégico de Segurança */
+        .security-step { border: 1px solid #fbcfe8; background: #fff5f5; }
+        .security-step .step-number { background: #e11d48; }
+        .security-tag { font-size: 10px; text-transform: uppercase; font-weight: bold; background: #ffe4e6; color: #b91c1c; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-bottom: 5px; }
+
+        /* Rodapé */
+        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 40px 20px; font-size: 14px; }
+        footer h4 { color: white; margin-bottom: 10px; font-size: 16px; }
+        .contact-info { font-family: monospace; color: #f1f5f9; font-size: 15px; margin-top: 5px; }
+        .copyright { margin-top: 30px; font-size: 11px; opacity: 0.6; letter-spacing: 0.5px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo">EssemeTecnocontas (SU), Lda.</div>
+    </nav>
+
+    <header class="hero">
+        <h1>Os teus documentos, sempre contigo.</h1>
+        <p>Aceda ao seu Bilhete de Identidade, Carta de Condução e Certificados instantaneamente no telemóvel de forma 100% offline, segura e organizada.</p>
+    </header>
+
+    <main class="products-container">
+        
+        <div class="card lite-card">
+            <span class="badge lite-badge">Plano Semestral</span>
+            <div>
+                <div class="card-header-block">
+                    <img src="iconlite.png" alt="Ícone Carteira Digital LITE" class="app-icon">
+                    <h2>Versão LITE</h2>
+                </div>
+                <div class="price">2.500 KZ <span>/ Acesso Inicial</span></div>
+                <div class="renewal-price">Renovação: 1.200 KZ a cada 6 meses</div>
+                
+                <ul class="features-list">
+                    <li>Interface corporativa em tons de Azul</li>
+                    <li>6 Bolsos de Documentos Fixos Padrão</li>
+                    <li>Adicione até 3 Bolsos Customizados Extra</li>
+                    <li>Exibição do Nome do Titular no cabeçalho</li>
+                    <li>Alerta visual de expiração (Faltando 10 dias)</li>
+                    <li>Funcionamento 100% offline e independente</li>
+                </ul>
+
+                <div class="preview-gallery">
+                    <img src="telfoneliteAreafrontal.png" alt="Interface Frontal LITE" class="preview-img">
+                </div>
+            </div>
+            <a href="carteiraLITE02.html" download class="btn-download btn-lite">⬇ Descarregar APK LITE</a>
+        </div>
+
+        <div class="card premium-card">
+            <span class="badge premium-badge">Plano Anual</span>
+            <div>
+                <div class="card-header-block">
+                    <img src="iconpremium.png" alt="Ícone Carteira Digital PREMIUM" class="app-icon">
+                    <h2>Versão PREMIUM</h2>
+                </div>
+                <div class="price">5.000 KZ <span>/ Acesso Inicial</span></div>
+                <div class="renewal-price">Renovação: 2.500 KZ a cada 1 ano</div>
+                
+                <ul class="features-list">
+                    <li>Visual de Luxo (Modo Escuro e Dourado)</li>
+                    <li>6 Bolsos de Documentos Fixos Padrão</li>
+                    <li>Adicione até 6 Bolsos Customizados Extra</li>
+                    <li>Grelha simétrica perfeita (Total 12 Bolsos)</li>
+                    <li>Efeito "Crachá Digital" (Nome, Cargo e N.º Profissional)</li>
+                    <li>Suporte prioritário EssemeTecnocontas</li>
+                </ul>
+
+                <div class="preview-gallery premium-gallery">
+                    <img src="telfonepremiuAreafrontal.png" alt="Interface Frontal Premium" class="preview-img">
+                    <img src="telfonepremiuNumroIdenticaAberto.png" alt="Interface Premium Campos Abertos" class="preview-img">
+                </div>
+            </div>
+            <a href="carteiraPremium01.html" download class="btn-download btn-premium">⬇ Descarregar APK PREMIUM</a>
+        </div>
+
+    </main>
+
+    <section class="instructions">
+        <h3>Ordem de Configuração Rápida</h3>
+        <div class="steps-grid">
+            
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <h4>Descarregar o Aplicativo</h4>
+                <p>Escolha a versão ideal para si acima (LITE ou PREMIUM) e clique no botão correspondente para iniciar o download direto do instalador oficial (.APK).</p>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <h4>Instalação e Permissões</h4>
+                <p>Abra o ficheiro descarregado para instalar. Se o telemóvel solicitar, dê a permissão para "Instalar aplicações de fontes desconhecidas" nas definições do navegador.</p>
+            </div>
+
+            <div class="step-item security-step">
+                <span class="security-tag">Nota de Privacidade</span>
+                <div class="step-number">3</div>
+                <h4>Ignorar Alerta do Android</h4>
+                <p>Por ser um software inovador e 100% independente (instalado sem passar pela Google Play Store para manter os seus dados estritamente privados), o Android exibirá um alerta padrão. Clique tranquilamente em <b>"Instalar mesmo assim"</b> ou <b>"Ignorar aviso"</b>.</p>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">4</div>
+                <h4>Ativação da Licença</h4>
+                <p>Abra a aplicação, copie o ID de Hardware gerado no ecrã e envie-o ao nosso suporte via WhatsApp para receber a sua chave exclusiva de ativação do plano.</p>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">5</div>
+                <h4>Carregar os Ficheiros</h4>
+                <p>Com o aplicativo ativo, clique em qualquer bolso e selecione fotos da galeria ou ficheiros PDF diretamente do seu telemóvel para tê-los sempre acessíveis offline.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <h4>Precisa de ajuda ou deseja comprar chaves de Ativação?</h4>
+        <p>Entre em contacto com o Suporte Técnico Oficial:</p>
+        <div class="contact-info">WhatsApp: +244 956 578 410</div>
+        <div class="contact-info">E-mail: suporteessetec@gmail.com</div>
+        <div class="copyright">Desenvolvido por EssemeTecnocontas © 2026. Todos os direitos reservados.</div>
+    </footer>
+
+</body>
+</html>
